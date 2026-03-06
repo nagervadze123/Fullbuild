@@ -31,7 +31,7 @@ services:
       - PYTHONPATH=/app
     depends_on: [backend, redis]
     volumes: ["./backend:/app", "./data:/data"]
-    command: celery -A app.workers.celery_app.celery_app worker --loglevel=info
+    command: celery -A app.workers.celery_app.celery_app worker -Q workflows --loglevel=info
 
   frontend:
     build: ./frontend
