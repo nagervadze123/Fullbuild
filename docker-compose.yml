@@ -13,6 +13,8 @@ services:
   backend:
     build: ./backend
     env_file: .env
+      environment:
+    - PYTHONPATH=/app
     ports: ["8000:8000"]
     depends_on: [postgres, redis]
     volumes: ["./backend:/app", "./data:/data"]
